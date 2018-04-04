@@ -1,8 +1,8 @@
 # BATS (bash automated testing system)
 
-[![Build Status](https://img.shields.io/travis/graze/docker-bats/master.svg)](https://travis-ci.org/graze/docker-bats)
-[![Docker Pulls](https://img.shields.io/docker/pulls/graze/bats.svg)](https://hub.docker.com/r/graze/bats/)
-[![Image Size](https://images.microbadger.com/badges/image/graze/bats.svg)](https://microbadger.com/images/graze/bats)
+[![Build Status](https://img.shields.io/travis/jforge/docker-bats/master.svg)](https://travis-ci.org/jforge/docker-bats)
+[![Docker Pulls](https://img.shields.io/docker/pulls/jforge/bats.svg)](https://hub.docker.com/r/jforge/bats/)
+[![Image Size](https://images.microbadger.com/badges/image/jforge/bats.svg)](https://microbadger.com/images/jforge/bats)
 
 This is a docker image containing [bats](https://github.com/sstephenson/bats) and a few other useful bits:
  * [jq](https://stedolan.github.io/jq/), make, curl, docker, git, bc

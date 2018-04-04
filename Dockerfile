@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-ARG VERSION=0.4.0-pi
+ARG VERSION=0.4.0
 
 LABEL maintainer="github@jforge.de" \
     license="MIT" \
