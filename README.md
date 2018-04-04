@@ -4,12 +4,13 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/graze/bats.svg)](https://hub.docker.com/r/graze/bats/)
 [![Image Size](https://images.microbadger.com/badges/image/graze/bats.svg)](https://microbadger.com/images/graze/bats)
 
-This is a docker image containing [bats](https://github.com/sstephenson/bats) and a few other useful bits: [jq](https://stedolan.github.io/jq/), make, curl, docker, git
+This is a docker image containing [bats](https://github.com/sstephenson/bats) and a few other useful bits:
+ * [jq](https://stedolan.github.io/jq/), make, curl, docker, git, bc
 
 ## Usage
 
 ```bash
-docker run --rm -v $(pwd):/app graze/bats /app/tests
+docker run --rm -v $(pwd):/app jforge/bats /app/tests
 ```
 
 ## Usage with docker
@@ -20,12 +21,12 @@ To be able to run docker commands within this container you need to mount the do
 docker run --rm \
     -v $(pwd):/app \
     -v /var/run/docker.sock:/var/run/docker.sock \
-    graze/bats /app/tests
+    jforge/bats /app/tests
 ```
 
 ```sh
 @test "entrypoint is bats" {
-  run bash -c "docker inspect graze/bats:$tag | jq -r '.[].Config.Entrypoint[]'"
+  run bash -c "docker inspect jforge/bats:$tag | jq -r '.[].Config.Entrypoint[]'"
   echo 'status:' $status
   echo 'output:' $output
   [ "$status" -eq 0 ]

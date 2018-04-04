@@ -1,18 +1,18 @@
-FROM alpine:3.6
+FROM alpine:3.7
 
-ARG VERSION=0.4.0
+ARG VERSION=0.4.0-pi
 
-LABEL maintainer="developers@graze.com" \
+LABEL maintainer="github@jforge.de" \
     license="MIT" \
     org.label-schema.schema-version="1.0" \
-    org.label-schema.vendor="graze" \
+    org.label-schema.vendor="jforge" \
     org.label-schema.name="bats" \
     org.label-schema.version="${VERSION}" \
     org.label-schema.description="alpine image for testing with bats" \
-    org.label-schema.vcs-url="https://github.com/graze/docker-bats" \
-    org.label-schema.docker.cmd="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/app graze/bats"
+    org.label-schema.vcs-url="https://github.com/jforge/docker-bats" \
+    org.label-schema.docker.cmd="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/app jforge/bats"
 
-RUN apk add --no-cache --update bash curl docker make jq git && \
+RUN apk add --no-cache --update bash curl docker make jq git bc && \
       curl -o "/tmp/v${VERSION}.tar.gz" -L "https://github.com/sstephenson/bats/archive/v${VERSION}.tar.gz" && \
       tar -x -z -f "/tmp/v${VERSION}.tar.gz" -C /tmp/ && \
       bash "/tmp/bats-${VERSION}/install.sh" /usr/local && \

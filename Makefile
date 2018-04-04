@@ -11,23 +11,23 @@ build-quick: ## Build using caches
 
 build: cache ?=--pull --no-cache
 build: ## Build a bats version
-	docker build ${cache} ${build_args} -t graze/bats:${ver} .
+	docker build ${cache} ${build_args} -t jforge/bats:${ver} .
 
 test: ## Test the image
 	docker run --rm \
 		-v /var/run/docker.sock:/var/run/docker.sock -v $$(pwd):/app \
 		-e ver=${ver} \
-		graze/bats:${ver} .
+		jforge/bats:${ver} .
 
 tag: ## Tag the image to latest if it is the latest
 ifeq (${ver},${latest})
-	docker tag graze/bats:${ver} graze/bats:latest
+	docker tag jforge/bats:${ver} jforge/bats:latest
 endif
 
 push: ## Push the images to the respository
-	docker push graze/bats:${ver}
+	docker push jforge/bats:${ver}
 ifeq (${ver},${latest})
-	docker push graze/bats:latest
+	docker push jforge/bats:latest
 endif
 
 deploy: ## Tag and push the image
